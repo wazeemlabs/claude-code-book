@@ -7,3 +7,13 @@
   (.jsonl), rendered (.md), with the prompt used (.prompt)
 - tools/run.sh, tools/render.py: run and render a headless session
 - tools/interview.py: drive AskUserQuestion through the Agent SDK
+
+## How the sessions were billed
+
+Every session here (the `claude -p` runs and the Agent SDK runs) used a
+claude.ai subscription login, not an API key. The dollar figures in the
+run logs and transcripts are Claude Code's own estimates at list price
+(`costBasis: list`); the usage actually counted against the plan's
+five-hour and weekly windows. Fast mode was off. An SDK agent shipped to
+other people must use an API key or a cloud provider (see Chapter 24);
+running it locally under your own login, as here, is fine.
