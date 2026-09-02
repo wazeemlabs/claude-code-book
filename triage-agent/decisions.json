@@ -1,0 +1,7 @@
+{
+ "T-101": {
+  "decided_by": "maintainer",
+  "date": "2026-09-02",
+  "decision": "Suffix match becomes case-insensitive (.gz, .GZ, .Gz open through gzip). Detection stays suffix-only; no magic-byte sniffing. Amend SPEC.md section 5 to say the comparison is case-insensitive, and add a test for an uppercase suffix."
+ }
+}

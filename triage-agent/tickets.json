@@ -1,0 +1,17 @@
+[
+ {
+  "id": "T-101",
+  "title": "logsift crashes on a gzip file with a .GZ extension",
+  "body": "Running `logsift access.log.GZ` on a file rotated by our Windows box prints garbage rows instead of parsed records. The same file renamed to .gz works. Expected: the suffix check should be case-insensitive, or at least the error should say the file was not recognized as gzip."
+ },
+ {
+  "id": "T-102",
+  "title": "count by status prints 200 before 404 even though 404 has more rows",
+  "body": "With --agg 'count by status' on our access log I expected the biggest group first. I get 200 first because it has the same count as 404 in my sample. Is the tie-break alphabetical by design? If so the docs should say so."
+ },
+ {
+  "id": "T-103",
+  "title": "Feature request: follow mode like tail -f",
+  "body": "It would be great if logsift could keep reading a file as it grows, like tail -f, so I can watch errors live. Any plans?"
+ }
+]

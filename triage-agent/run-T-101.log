@@ -1,0 +1,27 @@
+{
+  "phase": "read",
+  "turns": 16,
+  "cost": 0.49,
+  "verdict": {
+    "verdict": "needs_human",
+    "summary": "T-101 reports that `logsift access.log.GZ` prints garbage rows instead of parsed records. Confirmed cause: gzip is selected by `path.endswith(\".gz\")` (reader.py:27,89), so an uppercase `.GZ` name falls through to the plain-binary branch (reader.py:94) and is decoded with errors=\"replace\" (reader.py:31,124), yielding replacement characters. That fallback is exactly what SPEC 5 prescribes for a non-.gz name (\"detection is by suffix only, not by magic bytes\", SPEC.md:220; binary degrades to replacement chars, SPEC.md:230-231), and it is intentional and test-locked (reader.py:83-85, tests/test_reader.py:77-83). However, SPEC and README never state whether the suffix match is case-sensitive (SPEC.md:219, README.md:49), and no test covers `.GZ`, so the specific complaint is an undecided policy gap rather than documented behavior. The ticket's fallback ask \u2014 an error saying the file was not recognized as gzip \u2014 is not implementable at all, since it requires magic-byte sniffing that SPEC.md:220 forbids and tests/test_reader.py:77-83 enforces. The case-insensitive fix is one line at reader.py:89 but widens the input contract and needs SPEC 5 amended, plus maintainer decisions on `.Gz`, lower() vs casefold(), and platform-dependent matching. CLAUDE.md:3-4 makes SPEC binding, so this should go to a maintainer to decide before any code change.",
+    "evidence": [
+      "src/logsift/reader.py:27",
+      "src/logsift/reader.py:89",
+      "src/logsift/reader.py:94",
+      "src/logsift/reader.py:31",
+      "src/logsift/reader.py:124",
+      "src/logsift/reader.py:83-85",
+      "src/logsift/reader.py:100-117",
+      "SPEC.md:219",
+      "SPEC.md:220",
+      "SPEC.md:230-231",
+      "SPEC.md:226",
+      "README.md:49",
+      "tests/test_reader.py:77-83",
+      "tests/test_reader.py:70-74",
+      "tests/test_cli.py:267-270",
+      "CLAUDE.md:3-4"
+    ]
+  }
+}

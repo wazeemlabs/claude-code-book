@@ -1,0 +1,39 @@
+/Users/reader/Documents/Wazeem/books/claude-code-companion/.venv-driver/lib/python3.14/site-packages/claude_agent_sdk/types.py:1918: CanUseToolShadowedWarning: can_use_tool will not be invoked for: Read, Grep, Glob, Edit, Write, mcp__tickets__get_ticket, mcp__tickets__get_decision. An allowed_tools entry that allows a whole tool auto-approves it before the callback is consulted. To gate every tool call, use a PreToolUse hook; or narrow the entry so calls fall through to can_use_tool. Allow rules from settings files can also shadow the callback but are not visible here.
+  _warn_if_can_use_tool_shadowed(options)
+{
+  "phase": "read",
+  "turns": 12,
+  "cost": 0.27,
+  "verdict": {
+    "verdict": "bug_fixed_possible",
+    "summary": "T-101 is a real, fixable bug. logsift's gzip detection is a case-sensitive suffix test \u2014 reader.py:89 does `path.endswith(GZIP_SUFFIX)` against `GZIP_SUFFIX = \".gz\"` (reader.py:26) \u2014 so `access.log.GZ` misses the gzip branch and falls through to the plain-file open at reader.py:94. That handle is decoded as UTF-8 with errors=\"replace\" (reader.py:123), which is exactly why the user sees garbage rows instead of parsed records or an error. No path case-normalization exists anywhere in src/.\n\nRead strictly, SPEC.md:219-220 (\"Files whose name ends in `.gz` ... Detection is by suffix only, not by magic bytes\") makes today's behavior spec-conformant, which is what turns this into a policy question rather than a plain bug. The recorded maintainer decision (2026-09-02) settles it in the ticket's favor and is the authority: the suffix match becomes case-insensitive (.gz, .GZ, .Gz), detection stays suffix-only with no magic-byte sniffing, SPEC.md section 5 is amended to say the comparison is case-insensitive, and a test is added for an uppercase suffix.\n\nScope note: the ticket's alternative suggestion \u2014 \"at least the error should say the file was not recognized as gzip\" \u2014 is NOT adopted by the decision; no new error path or magic-byte sniffing. The fix is three steps: (1) case-insensitive compare at reader.py:89, leaving _open_gzip's early-validation read untouched; (2) amend SPEC.md:219-220; (3) add an uppercase-suffix test next to tests/test_reader.py:70, keeping tests/test_reader.py:77 (suffix-only, not magic bytes) passing. Triage only \u2014 no code was changed.",
+    "evidence": [
+      "src/logsift/reader.py:26 \u2014 GZIP_SUFFIX = \".gz\" (lowercase-only constant)",
+      "src/logsift/reader.py:89 \u2014 `if path.endswith(GZIP_SUFFIX):` case-sensitive test that .GZ fails",
+      "src/logsift/reader.py:94 \u2014 else-branch `open(path, \"rb\")` raw handle taken for .GZ",
+      "src/logsift/reader.py:123 \u2014 `_decode` wraps in TextIOWrapper with errors=\"replace\", producing the garbage rows instead of an error",
+      "src/logsift/reader.py:83-85 \u2014 docstring states gzip is chosen by suffix only, never magic bytes",
+      "SPEC.md:219-220 \u2014 \"Files whose name ends in `.gz` ... Detection is by suffix only, not by magic bytes\" (text the decision amends)",
+      "SPEC.md:226 \u2014 malformed-gzip input exits 2 before output; unaffected by this fix",
+      "tests/test_reader.py:70 \u2014 test_a_gz_file_is_read_through_gzip (existing lowercase coverage)",
+      "tests/test_reader.py:77 \u2014 test_gzip_is_chosen_by_suffix_only_not_by_magic_bytes (must keep passing)",
+      "tests/test_cli.py:188 \u2014 test_gzip_is_read_by_suffix end-to-end coverage",
+      "README.md:49 \u2014 \"ending in `.gz` is read through gzip, by suffix and never by magic bytes\""
+    ]
+  }
+}
+{
+  "phase": "fix",
+  "turns": 18,
+  "cost": 0.6,
+  "result": {
+    "branch": "fix/t-101",
+    "files_changed": [
+      "src/logsift/reader.py",
+      "tests/test_reader.py",
+      "SPEC.md"
+    ],
+    "summary": "Fixed T-101 per the maintainer's recorded decision: logsift's gzip detection was a case-sensitive suffix test (reader.py:89, `path.endswith(GZIP_SUFFIX)` against `GZIP_SUFFIX = \\\".gz\\\"`), so `access.log.GZ` missed the gzip branch, fell through to the plain-file open at reader.py:94, and was decoded UTF-8 with errors=\\\"replace\\\" (reader.py:123) into garbage rows.\\n\\nWork done on branch fix/t-101, committed as f1832d9:\\n1. Test-first: added two failing tests next to the existing lowercase coverage at tests/test_reader.py:70 \u2014 test_an_uppercase_gz_suffix_is_also_read_through_gzip (.GZ) and test_a_mixed_case_gz_suffix_is_also_read_through_gzip (.Gz). Both initially failed asserting against raw gzip bytes decoded to replacement characters, reproducing the reported symptom exactly.\\n2. Root cause fixed at reader.py:89 by lowercasing the path before the suffix test: `path.lower().endswith(GZIP_SUFFIX)`. No error suppression, no new try/except, no magic-byte sniffing. _open_gzip's early one-byte header validation left untouched, so a malformed .gz still raises InputError -> exit 2 before any output (SPEC.md:226 behavior preserved). Also updated the GZIP_SUFFIX constant comment and the open_source docstring, which both asserted the old case-sensitive contract.\\n3. Amended SPEC.md:219-220 to state the suffix comparison is case-insensitive (.gz, .GZ, .Gz), keeping the \\\"detection is by suffix only, not by magic bytes\\\" rule intact.\\n\\nScope respected: the ticket's alternative suggestion of a \\\"not recognised as gzip\\\" error path was NOT adopted, matching the decision. No existing tests were modified \u2014 test changes are additions only (+16 lines). tests/test_reader.py:77 (suffix-only, not magic bytes) still passes, since lowercasing a path cannot make a non-.gz name look like one.\\n\\nNot done, flagged for follow-up: README.md:49 still describes gzip detection without mentioning case. It remains accurate, and the decision named only SPEC.md section 5, so it was left out of scope.",
+    "test_output": "$ .venv/bin/python -m pytest -q\n........................................................................ [ 11%]\n........................................................................ [ 23%]\n........................................................................ [ 34%]\n........................................................................ [ 46%]\n........................................................................ [ 57%]\n........................................................................ [ 69%]\n........................................................................ [ 80%]\n........................................................................ [ 92%]\n................................................                         [100%]\n624 passed in 7.54s\n\nPre-fix run of the new tests (confirming they reproduce the bug):\nFAILED tests/test_reader.py::test_an_uppercase_gz_suffix_is_also_read_through_gzip\n  AssertionError: assert [(1, '\\x1f\ufffd\\x08\\x00...')] == [(1, 'first'), (2, 'second')]\nFAILED tests/test_reader.py::test_a_mixed_case_gz_suffix_is_also_read_through_gzip\n  AssertionError: assert [(1, '\\x1f\ufffd\\x08\\x00...')] == [(1, 'first')]\n2 failed, 17 deselected in 0.11s\n\nAdditional gates from CLAUDE.md:\n$ .venv/bin/python -m ruff check .   -> All checks passed!\n$ .venv/bin/python -m ruff format --check .  -> 42 files already formatted\n$ .venv/bin/python -m mypy --strict src/  -> Success: no issues found in 18 source files"
+  }
+}
