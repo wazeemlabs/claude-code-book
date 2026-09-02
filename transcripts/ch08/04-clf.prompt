@@ -1,0 +1,7 @@
+@tests/fixtures/access.log
+Implement the Common Log Format parser (plan step 4, clf
+only; logfmt comes next) as a plugin
+registered under the logsift.parsers entry point group.
+Write the tests against the fixture file first. Every
+line in the fixture must parse; add a test that asserts
+no record has parse_error set.

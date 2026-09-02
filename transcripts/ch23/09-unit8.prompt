@@ -1,0 +1,53 @@
+You are on branch migration-integration. Create a branch
+migrate/unit-8 from it and do Unit 8 from docs/migration/units.md
+there, following docs/migration/pattern.md:
+
+Work only in `helpdesk/models.py` and, if a field actually changes, a **new** migration
+file that you generate with `make migrations` (which wraps `demodesk makemigrations`).
+Never edit an existing file under `helpdesk/migrations/` - the library ships them and
+an edit rewrites history for every existing install. Tests you own:
+`helpdesk/tests/test_attachments.py` and `helpdesk/tests/test_usersettings.py`. Do not
+edit any other file, including `quicktest.py` and the project settings files.
+
+Read `docs/migration/inventory.md` section "helpdesk/models.py".
+
+The break: `FollowUpAttachment.attachment_path` (`helpdesk/models.py:1278`) and
+`KBIAttachment.attachment_path` (`helpdesk/models.py:1299`) both read
+`settings.DEFAULT_FILE_STORAGE`, which Django 5.1 removed in favour of `STORAGES`. No
+settings file in this repo defines it - including `quicktest.py` - so the first
+attachment upload raises `AttributeError` under 5.1+.
+
+Both call sites are the same three lines of logic twice over. Fix the root cause: read
+the configured default storage through the current API (check
+`.venv52/lib/python3.11/site-packages/django/core/files/storage/__init__.py` for what
+5.2 actually exposes), decide from the storage object itself whether it is local rather
+than by comparing a settings string to a class path, and extract the shared "make the
+directory if this storage is filesystem-backed" logic into one helper both classes
+call. It has to keep working on Django 4.2, so guard the import if the 5.x API is not
+present there. Do not add a `DEFAULT_FILE_STORAGE` fallback into settings to paper over
+it.
+
+While in the file, check the other framework surfaces the inventory lists: the six
+`save()` overrides passing `*args, **kwargs` through (lines 449, 863, 1044, 1240, 1582,
+1855), `timezone.now` defaults, `mark_safe`, `ContentType`, `Permission`, and the lazy
+`Site` / `reverse` imports. Fix what is genuinely broken; do not refactor what is not.
+
+`models.py` has no direct test module - coverage is indirect through five other units'
+tests. Write direct tests inside the two modules you own for the storage path
+specifically: an attachment saved under filesystem storage lands at the expected path
+and the directory is created with the configured permissions; an attachment saved under
+a non-filesystem storage does not touch the filesystem (use an in-memory storage);
+the path is stable for a ticket whose `secret_key` contains characters needing escaping.
+
+Verify, both must pass:
+
+```bash
+.venv52/bin/python quicktest.py helpdesk.tests.test_attachments helpdesk.tests.test_usersettings
+.venv/bin/python quicktest.py helpdesk.tests.test_attachments helpdesk.tests.test_usersettings
+```
+
+If `make migrations` produces a migration, say so explicitly in your report and include
+its filename - that is a schema change for every downstream install.
+
+Commit on migrate/unit-8 when both verification commands are
+green, then switch back to migration-integration. Do not merge.

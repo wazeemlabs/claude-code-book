@@ -1,0 +1,9 @@
+Revise CLAUDE.md so it contains only what a competent
+engineer could not infer from the code: the test
+command and how to run one file, the two directories
+that must not be edited without a migration, the naming
+convention for services, and the fact that the modules
+docs/migration/inventory.md rates High have thin direct
+tests and must be changed only behind the pattern in
+docs/migration/pattern.md. Under 60 lines. Delete
+anything the code already makes obvious.

@@ -1,0 +1,5 @@
+Use a subagent to review the migrate/unit-4 branch
+against docs/migration/pattern.md and the unit's entry
+in docs/migration/units.md. Report only gaps that affect
+correctness or the pattern, not style. Confirm no test
+was deleted or skipped.

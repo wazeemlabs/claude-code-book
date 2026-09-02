@@ -1,0 +1,14 @@
+You are on migration-integration, where units 1, 2, 3,
+4, and 8 are merged and docs/migration/pattern.md and
+docs/migration/reports/unit-4.md exist. For units 5, 6,
+7, 9, and 10 in docs/migration/units.md, run one
+subagent per unit, each in its own worktree cut from
+this branch. Each subagent follows
+docs/migration/pattern.md, runs the unit's verification
+commands (both environments) until they pass without
+modifying existing tests, writes its outward report to
+docs/migration/reports/unit-<n>.md, commits only its
+owned files on a branch named migrate/unit-<n>, and
+reports the diff stats and the test output. Verify each
+report by rerunning its commands yourself. Do not merge
+anything.

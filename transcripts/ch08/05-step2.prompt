@@ -1,0 +1,4 @@
+@PLAN.md
+Implement step 2 of the plan (timeparse.py) with tests,
+test-first. Run pytest, ruff, and mypy and show me the
+output, then commit with a descriptive message.

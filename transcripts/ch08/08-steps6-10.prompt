@@ -1,0 +1,8 @@
+@PLAN.md
+Implement plan steps 6 through 10 in order: reader,
+sniff, pipeline, agg, render. Test-first for each.
+Aggregation is count, count by <field>, top <n>
+<field>, p50 and p95 <field>, using the standard
+library only (statistics.quantiles); no numpy. After
+each step run pytest, ruff, and mypy, show the output,
+and commit that step before starting the next.

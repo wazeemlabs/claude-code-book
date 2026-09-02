@@ -1,0 +1,12 @@
+Using docs/migration/inventory.md, split the migration
+from Django 4.2 to Django 5.2 into independent units.
+Each unit: one module or a tightly coupled pair, its
+tests, and no shared files with any other unit. Order
+them lowest risk first. For each, write the exact
+prompt a subagent would need to do it, including the
+verification command. A second virtual environment,
+.venv52, has Django 5.2 installed; a unit is verified
+with .venv52/bin/python quicktest.py <its test modules>
+and the baseline is kept green with .venv/bin/python
+quicktest.py. Write the result to
+docs/migration/units.md. Do not start any.

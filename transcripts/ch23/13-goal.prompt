@@ -1,0 +1,8 @@
+/goal all units in docs/migration/units.md are merged
+into migration-integration (branches migrate/unit-1
+through migrate/unit-10), the full test suite passes on
+both environments (.venv/bin/python quicktest.py and
+.venv52/bin/python quicktest.py) with the baseline's
+two skipped tests still skipped and no existing test
+deleted, and no file under helpdesk/migrations/
+changed; or stop after 30 turns

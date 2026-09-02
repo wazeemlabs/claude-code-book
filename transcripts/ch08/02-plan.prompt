@@ -1,0 +1,7 @@
+@SPEC.md @CLAUDE.md
+Plan the project structure: src layout, pyproject.toml
+with setuptools, the console script entry point, the
+parser plugin protocol, the two built-in parsers, the
+filter expression parser, aggregation, and output.
+Propose the order to build it in so that each step has
+a passing test suite. Do not write code yet.

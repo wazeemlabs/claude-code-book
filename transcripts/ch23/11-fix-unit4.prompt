@@ -1,0 +1,16 @@
+Switch to branch migrate/unit-4. A reviewer that did
+not write it produced the report in
+../transcripts/ch23/10-review-unit4.report.md; read it.
+Address findings 1 and 3 the way docs/migration/pattern.md
+steps 6 and 7 require: restore the pre-existing
+recipient-normalisation behaviour in
+helpdesk/templated_email.py, pin it with a test and a
+comment that names the bug, and write the outward
+report (file, line, intended fix) for both that bug and
+the unbound form in views/staff.py into
+docs/migration/reports/unit-4.md. Address finding 2
+with a test if it is cheap, otherwise add it to the
+report. Do not touch any file another unit owns. Run
+the unit's verification commands on both environments,
+commit on migrate/unit-4, then switch back to
+migration-integration. Do not merge.

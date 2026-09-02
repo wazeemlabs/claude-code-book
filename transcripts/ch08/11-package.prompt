@@ -1,0 +1,5 @@
+Use a subagent to build the wheel and sdist with
+`python -m build`, install the wheel into a fresh
+virtual environment in a temp directory, run
+`logsift --help` there, and report back only whether
+the install and the command succeeded and any warnings.

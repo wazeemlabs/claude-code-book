@@ -1,0 +1,7 @@
+.venv-driver/
+logsift/
+logsift-nginx/
+brownfield/
+*.stderr
+*.run.log
+worktrees/

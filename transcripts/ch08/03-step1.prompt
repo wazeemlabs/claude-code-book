@@ -1,0 +1,5 @@
+@PLAN.md
+Implement step 1 of the plan: the package skeleton,
+pyproject.toml, the Record type, and the parser plugin
+protocol, with tests. Test-first. Run pytest, ruff, and
+mypy and show me the output before you stop.

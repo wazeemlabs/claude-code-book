@@ -1,0 +1,12 @@
+@PLAN.md
+Implement the filter expression parser from the plan
+(plan step 3, the expr package). Add hypothesis to the
+test dependencies only. Write property tests: any
+expression the pretty-printer emits must parse back to
+an equal tree, and evaluating a filter against a record
+must never raise for any record. Then the example-based
+tests from SPEC.md. Name these cases explicitly: a
+missing field in a comparison, a string compared to a
+number, an empty expression, and not binding tighter
+than and. Run pytest, ruff, and mypy and show the
+output, then commit.

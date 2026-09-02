@@ -1,0 +1,4 @@
+Give me an overview of this codebase: what it does, the
+main architecture patterns, the key data models, how
+requests flow in and out, and how tests are organized.
+Then list the parts that look oldest or most fragile.

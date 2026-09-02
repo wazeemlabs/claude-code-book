@@ -1,0 +1,13 @@
+Trace one request from the entry point to the database
+and back. Name every file it passes through.
+
+Then: which parts of the code depend directly on the
+Django APIs that changed between Django 4.2 and Django
+5.2? Group them by module and estimate the blast
+radius of each. Present the map as a table of module,
+framework surfaces used, and test coverage.
+
+Then write that map to docs/migration/inventory.md with
+one section per module: files, framework APIs used,
+tests that cover them, and a risk rating with one line
+of reasoning. Do not edit anything else.

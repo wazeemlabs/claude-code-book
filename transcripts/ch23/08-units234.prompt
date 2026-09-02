@@ -1,0 +1,7 @@
+For units 2, 3, and 4 in docs/migration/units.md, run
+one subagent per unit, each in its own worktree. Each
+subagent follows docs/migration/pattern.md, runs the
+unit's verification command until it passes without
+modifying existing tests, commits on a branch named
+migrate/unit-<n>, and reports the diff stats and the
+test output. Do not merge anything.

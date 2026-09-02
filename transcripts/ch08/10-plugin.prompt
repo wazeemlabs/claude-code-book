@@ -1,0 +1,17 @@
+This directory is empty apart from git. Build
+logsift-nginx, a parser plugin for the logsift tool
+whose source is in ../logsift (read its SPEC.md
+section 4 and README for the plugin protocol; never
+edit anything under ../logsift). The plugin parses
+nginx's default "combined" access log format, lives in
+a separate package with a src layout, and declares:
+
+[project.entry-points."logsift.parsers"]
+nginx = "logsift_nginx:PARSER"
+
+Standard library only at runtime. Write a fixture file
+of ten realistic combined-format lines and the tests
+first. Then install both packages in editable mode into
+a fresh .venv here (python3 -m venv .venv), run
+`logsift --parser nginx` against the fixture, and show
+me the output. Commit when green.

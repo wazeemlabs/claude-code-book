@@ -1,0 +1,40 @@
+Work only in `helpdesk/templatetags/*.py` and `helpdesk/admin.py`, plus two new test
+files you create: `helpdesk/tests/test_templatetags.py` and
+`helpdesk/tests/test_admin.py`. Do not edit any other file. In particular do not edit
+`quicktest.py`, `helpdesk/models.py`, or anything under `helpdesk/migrations/`.
+
+Goal: make these modules run correctly on Django 5.2 while still running on 4.2, and
+leave behind direct tests for them (they currently have almost none - only
+`num_to_link` from `ticket_to_link.py` is touched, indirectly, by another unit's test
+module).
+
+Read `docs/migration/inventory.md` sections "helpdesk/templatetags" and
+"helpdesk/admin.py" first. Then read the seven templatetag modules and `admin.py` and
+check each Django API they use against the Django 5.2 source installed in
+`.venv52/lib/python3.11/site-packages/django/` - not against memory. Watch for filters
+removed in 5.1 (`length_is`), `django.template.defaultfilters.date` behaviour,
+`mark_safe` on values that are no longer strings, and any `ModelAdmin` hook whose
+signature changed in 5.0/5.1 (`log_addition`/`log_change`/`log_deletion`,
+`delete_queryset`).
+
+Write real tests, not smoke tests: for each registered tag and filter, cover the
+normal case, the empty/None case, and the case the tag was written to handle
+(permissions for `helpdesk_staff`, membership for `in_list`, settings absence for
+`load_helpdesk_settings`, an unsaved or missing object for `user_admin_url` and
+`ticket_to_link`). For `admin.py`, cover `delete_queryset` actually deleting and each
+`ModelAdmin`'s `list_display` callables returning what they claim.
+
+Verify with both, and both must pass:
+
+```bash
+.venv52/bin/python quicktest.py helpdesk.tests.test_templatetags helpdesk.tests.test_admin
+.venv/bin/python quicktest.py helpdesk.tests.test_templatetags helpdesk.tests.test_admin
+```
+
+If a fix appears to need a change outside your owned files, stop and report it instead
+of making it.
+
+This is the first unit, so also write docs/migration/pattern.md:
+the steps you followed, in order, so the remaining units can
+follow the same pattern. Commit when both verification
+commands are green.

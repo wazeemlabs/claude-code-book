@@ -1,0 +1,9 @@
+Your three unit subagents were interrupted before they
+finished. Their worktrees still exist with uncommitted
+work on branches migrate/unit-2, migrate/unit-3, and
+migrate/unit-4. Resume each unit in its existing
+worktree: read what is there, finish it following
+docs/migration/pattern.md, run the unit's verification
+commands until green without modifying existing tests,
+commit on the branch, and report the diff stats and
+the test output. Do not merge anything.

@@ -1,0 +1,9 @@
+@PLAN.md @SPEC.md
+Implement the key=value (logfmt) parser, the rest of
+plan step 4, then plan step 5 (both entry points
+declared, reinstall, discovery test). Test-first, with
+a fixture file tests/fixtures/app.log of ten realistic
+lines including two that no parser can handle; those
+must become raw records with parse_error set, and a
+test must assert it. Run pytest, ruff, and mypy and
+show the output, then commit each step separately.

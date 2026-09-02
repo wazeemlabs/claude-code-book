@@ -1,0 +1,12 @@
+@PLAN.md
+Implement plan steps 11 and 12: the command line with
+argparse (logsift FILE... [--parser NAME] [--filter
+EXPR] [--agg SPEC] [--json], stdin when no file, gzip
+by suffix), then the property tests, packaging test,
+and README. Two things are required: an integration
+test that runs the installed console script as a
+subprocess against the fixture files, and exit codes 0
+on success, 1 on a filter expression error, 2 on a
+missing file, with a test for each. Test-first. Run
+pytest, ruff, and mypy, show the output, and commit
+each step.
