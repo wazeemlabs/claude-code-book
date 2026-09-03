@@ -7,6 +7,9 @@
   migration-baseline, migration-integration, migrate/unit-N)
 - transcripts/ch08, transcripts/ch23: every session as stream-json
   (.jsonl), rendered (.md), with the prompt used (.prompt)
+- triage-agent: Chapter 24, the Agent SDK triage agent with its run logs
+- cost-estimator: Chapter 27, per-task and per-month estimate from result JSON
+- docs: the companion site, claude-code.wazeem.com (GitHub Pages)
 - tools/run.sh, tools/render.py: run and render a headless session
 - tools/interview.py: drive AskUserQuestion through the Agent SDK
 
