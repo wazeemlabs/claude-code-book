@@ -9,7 +9,7 @@
   (.jsonl), rendered (.md), with the prompt used (.prompt)
 - triage-agent: Chapter 24, the Agent SDK triage agent with its run logs
 - cost-estimator: Chapter 27, per-task and per-month estimate from result JSON
-- docs: the companion site, claude-code.wazeem.com (GitHub Pages)
+- the companion site is books.wazeem.com/claude-code, built from books/site
 - tools/run.sh, tools/render.py: run and render a headless session
 - tools/interview.py: drive AskUserQuestion through the Agent SDK
 
