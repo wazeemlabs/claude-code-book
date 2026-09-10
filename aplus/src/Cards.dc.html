@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #B7780F; } a:hover { color: #8F5D0B; }
+  </style>
+</helmet>
+<div style="width: 300px; height: 400px; background: #F6F4EE; font-family: Georgia, 'Times New Roman', serif; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;">
+  <div style="position: absolute; left: 76px; top: 24px; width: 200px; height: 240px; background: #fff; border: 1px solid #D9DDE5; box-shadow: 0 10px 30px rgba(11,31,58,0.10); transform: rotate(6deg);"></div>
+  <div style="position: absolute; left: 62px; top: 32px; width: 200px; height: 240px; background: #fff; border: 1px solid #D9DDE5; box-shadow: 0 10px 30px rgba(11,31,58,0.10); transform: rotate(3deg);"></div>
+  <div style="position: absolute; left: 48px; top: 40px; width: 200px; height: 240px; background: #fff; border: 1px solid #D9DDE5; box-shadow: 0 14px 34px rgba(11,31,58,0.14); padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 10px; color: #0B1F3A;">
+    <div style="font: 600 9px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #B7780F;">Appendix A</div>
+    <div style="font-size: 18px; line-height: 1.15;">Slash commands</div>
+    <div style="height: 2px; background: #B7780F; width: 28px;"></div>
+    <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 4px; font: 10px/1.5 'JetBrains Mono', ui-monospace, Menlo, monospace; color: #0B1F3A;">
+      <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 8px; border-bottom: 1px solid #D9DDE5; padding-bottom: 4px;"><span>/init</span><span style="color: #5B6B82; font-family: Georgia, serif; font-size: 10px;">write CLAUDE.md</span></div>
+      <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 8px; border-bottom: 1px solid #D9DDE5; padding-bottom: 4px;"><span>/model</span><span style="color: #5B6B82; font-family: Georgia, serif; font-size: 10px;">switch model</span></div>
+      <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 8px; border-bottom: 1px solid #D9DDE5; padding-bottom: 4px;"><span>/compact</span><span style="color: #5B6B82; font-family: Georgia, serif; font-size: 10px;">shrink context</span></div>
+      <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 8px; border-bottom: 1px solid #D9DDE5; padding-bottom: 4px;"><span>/hooks</span><span style="color: #5B6B82; font-family: Georgia, serif; font-size: 10px;">edit hooks</span></div>
+      <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 8px; border-bottom: 1px solid #D9DDE5; padding-bottom: 4px;"><span>/plugin</span><span style="color: #5B6B82; font-family: Georgia, serif; font-size: 10px;">manage plugins</span></div>
+      <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 8px;"><span>/cost</span><span style="color: #5B6B82; font-family: Georgia, serif; font-size: 10px;">session spend</span></div>
+    </div>
+  </div>
+  <div style="position: relative; display: flex; flex-direction: column; gap: 6px; color: #0B1F3A;">
+    <div style="font: 600 11px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #B7780F;">Appendices A to E</div>
+    <div style="font-size: 20px; line-height: 1.2; text-wrap: balance;">Five reference cards, also as PDFs on the companion site.</div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

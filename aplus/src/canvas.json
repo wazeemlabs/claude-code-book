@@ -1,0 +1,19 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 970, "h": 3150, "title": "A+ page, assembled", "print": "flow" },
+    { "file": "Header.dc.html", "x": 1100, "y": 0, "w": 970, "h": 600, "title": "1 · Image header 970×600" },
+    { "file": "Overlay.dc.html", "x": 1100, "y": 760, "w": 970, "h": 300, "title": "3 · Overlay 970×300" },
+    { "file": "TileStart.dc.html", "x": 1100, "y": 1220, "w": 220, "h": 220, "title": "2a · 220×220" },
+    { "file": "TileBuild.dc.html", "x": 1400, "y": 1220, "w": 220, "h": 220, "title": "2b · 220×220" },
+    { "file": "TileAutomate.dc.html", "x": 1700, "y": 1220, "w": 220, "h": 220, "title": "2c · 220×220" },
+    { "file": "TileScale.dc.html", "x": 2000, "y": 1220, "w": 220, "h": 220, "title": "2d · 220×220" },
+    { "file": "Cards.dc.html", "x": 1100, "y": 1600, "w": 300, "h": 400, "title": "4 · Sidebar image 300×400" },
+    { "file": "CoverClaude.dc.html", "x": 1500, "y": 1600, "w": 150, "h": 300, "title": "5a · Chart 150×300" },
+    { "file": "CoverLLM.dc.html", "x": 1730, "y": 1600, "w": 150, "h": 300, "title": "5b · Chart 150×300" }
+  ],
+  "annotations": [
+    { "id": "export-note", "x": 1100, "y": -150, "w": 420, "text": "Right column: each image at Amazon's exact pixel size for its module. Export each artboard as PNG and upload to the matching A+ module. Left: how the finished page reads, text modules included." },
+    { "id": "covers-note", "x": 1920, "y": 1600, "w": 260, "text": "Stand-ins. Swap for the real cover files (150×300) before upload." }
+  ],
+  "launch": { "view": "canvas" }
+}

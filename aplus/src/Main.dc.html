@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #B7780F; } a:hover { color: #8F5D0B; }
+  </style>
+</helmet>
+<div style="width: 970px; background: #ffffff; color: #0F1111; font-family: 'Amazon Ember', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; gap: 0; padding: 0 0 40px;">
+
+  <div style="font: 700 11px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #565959; padding: 18px 0 10px;">Module 1 · Standard image header with text · 970 × 600</div>
+  <dc-import name="Header" hint-size="970px,600px"></dc-import>
+  <div style="display: flex; flex-direction: column; gap: 10px; padding: 26px 0 8px;">
+    <div style="font-size: 24px; line-height: 1.25; font-weight: 700;">The whole tool, in the order you will meet it</div>
+    <div style="font-size: 16px; line-height: 1.55; color: #0F1111; text-wrap: pretty;">Written against Claude Code v2.1.257 and the official documentation as of 1 September 2026, this book takes you from your first session to agents that keep working after you close the laptop. Permissions and sandboxing, memory, hooks, MCP servers, plugins, subagents and agent teams, headless runs in CI, the desktop, web and mobile apps, the Agent SDK, enterprise rollout, and what all of it costs. Twenty-eight chapters, nine appendices, and every one of the 169 official documentation pages mapped to the chapter that covers it.</div>
+  </div>
+
+  <div style="font: 700 11px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #565959; padding: 34px 0 10px;">Module 2 · Standard four image and text · 4 × 220 × 220</div>
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <dc-import name="TileStart" hint-size="220px,220px"></dc-import>
+      <div style="font-size: 17px; line-height: 1.3; font-weight: 700;">Your first session</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #0F1111; text-wrap: pretty;">Install, sign in, and learn what a session actually does: the context window, permission modes and sandboxing, memory files, and the everyday workflows. Chapters 1 to 7.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <dc-import name="TileBuild" hint-size="220px,220px"></dc-import>
+      <div style="font-size: 17px; line-height: 1.3; font-weight: 700;">Extend the tool</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #0F1111; text-wrap: pretty;">Build a real command line project end to end, then hooks, keybindings and output styles, MCP servers, the browser, and plugins. Chapters 8 to 13.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <dc-import name="TileAutomate" hint-size="220px,220px"></dc-import>
+      <div style="font-size: 17px; line-height: 1.3; font-weight: 700;">Hand off the work</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #0F1111; text-wrap: pretty;">Subagents and agent teams, headless runs in GitHub Actions and GitLab, routines and scheduled tasks, and Claude Code on the desktop, web and phone. Chapters 14 to 20.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <dc-import name="TileScale" hint-size="220px,220px"></dc-import>
+      <div style="font-size: 17px; line-height: 1.3; font-weight: 700;">Teams and enterprise</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #0F1111; text-wrap: pretty;">Security and best practices, a brownfield migration of a real Django app, the Agent SDK, analytics, gateways and cloud providers, and cost control. Chapters 21 to 28.</div>
+    </div>
+  </div>
+
+  <div style="font: 700 11px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #565959; padding: 34px 0 10px;">Module 3 · Standard image and text overlay · 970 × 300</div>
+  <dc-import name="Overlay" hint-size="970px,300px"></dc-import>
+
+  <div style="font: 700 11px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #565959; padding: 34px 0 10px;">Module 4 · Standard single image and sidebar · 300 × 400</div>
+  <div style="display: flex; flex-direction: row; gap: 34px; align-items: flex-start;">
+    <dc-import name="Cards" hint-size="300px,400px"></dc-import>
+    <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px; padding-top: 6px;">
+      <div style="font-size: 24px; line-height: 1.25; font-weight: 700;">Kept current after print</div>
+      <div style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">Claude Code ships often, so the book comes with a companion site that lists, newest first, what has changed since this edition and which chapter it touches. It is updated monthly and the book itself is re-uploaded each quarter. The five reference appendices are there as PDFs, generated from the same documentation snapshot as the book.</div>
+      <div style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">The two companion projects, a log parsing tool with its plugin and a Django 4.2 to 5.2 migration, are public repositories with one commit per plan step, one branch per migration unit, and every session recorded and published along with the prompt that started it.</div>
+    </div>
+    <div style="width: 220px; background: #F7F7F7; border: 1px solid #D5D9D9; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-size: 14px; line-height: 1.3; font-weight: 700;">Companion code</div>
+      <div style="font-size: 13px; line-height: 1.5;">Chapter 8: the logsift CLI and its nginx plugin.</div>
+      <div style="font-size: 13px; line-height: 1.5;">Chapter 23: the django-helpdesk migration, one branch per unit.</div>
+      <div style="font-size: 13px; line-height: 1.5;">Chapter 24: the Agent SDK triage agent with its run logs.</div>
+      <div style="font-size: 13px; line-height: 1.5;">Chapter 27: the cost estimator.</div>
+    </div>
+  </div>
+
+  <div style="font: 700 11px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #565959; padding: 34px 0 10px;">Module 5 · Standard comparison chart · 150 × 300 covers</div>
+  <div style="display: grid; grid-template-columns: 220px repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid #D5D9D9;">
+    <div style="padding: 18px 12px; border-bottom: 1px solid #D5D9D9;"></div>
+    <div style="padding: 18px 12px; border-bottom: 1px solid #D5D9D9; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <dc-import name="CoverClaude" hint-size="150px,300px"></dc-import>
+      <div style="font-size: 15px; line-height: 1.3; font-weight: 700; text-align: center;">Claude Code from the Ground Up</div>
+    </div>
+    <div style="padding: 18px 12px; border-bottom: 1px solid #D5D9D9; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <dc-import name="CoverLLM" hint-size="150px,300px"></dc-import>
+      <div style="font-size: 15px; line-height: 1.3; font-weight: 700; text-align: center;">Large Language Models from the Ground Up</div>
+    </div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; font-weight: 700; background: #F7F7F7;">Read this if you want to</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; line-height: 1.5; text-align: center;">Get real work out of Claude Code, then automate and scale it</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; line-height: 1.5; text-align: center;">Understand how ChatGPT works and build a language model yourself</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; font-weight: 700; background: #F7F7F7;">You will build</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; line-height: 1.5; text-align: center;">A CLI tool and plugin, a CI pipeline, a triage agent, a framework migration</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; line-height: 1.5; text-align: center;">A tokenizer, autograd, self-attention and a transformer, step by step</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; font-weight: 700; background: #F7F7F7;">Runs in</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; line-height: 1.5; text-align: center;">Your terminal, editor, desktop, browser and CI</div>
+    <div style="padding: 14px 12px; border-bottom: 1px solid #D5D9D9; font-size: 14px; line-height: 1.5; text-align: center;">Free Colab notebooks, nothing to install</div>
+  </div>
+
+  <div style="font: 700 11px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #565959; padding: 34px 0 10px;">Module 6 · Standard text</div>
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 24px; line-height: 1.25; font-weight: 700;">Who it is for</div>
+    <div style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">Working developers who have tried Claude Code and want to stop guessing. Team leads deciding how to roll it out, what to lock down, and what it will cost. Engineers who want to build on the Agent SDK. No prior experience with agentic coding is assumed; comfort with a terminal and git is.</div>
+    <div style="font-size: 20px; line-height: 1.25; font-weight: 700; padding-top: 14px;">About the author</div>
+    <div style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">Waseem Khan is a US Fulbright Scholar with a master's in public policy and data analytics from Carnegie Mellon University, where he made the Heinz College Dean's List, and a master's in computer science from NUST. In nearly two decades as a software and machine learning engineer he has shipped Android apps with over a million downloads, and as a Deputy Commissioner in Pakistan's Inland Revenue Service built the fraud detection and analytics systems that raised audit capacity twenty-fold. Today he works inside the LLM industry itself, leading a thirty-person team that creates and audits the training data used to teach frontier AI models to code and reason, and writing the PhD-level research problems used to train their deep-research modes. He is also the author of Large Language Models from the Ground Up.</div>
+    <div style="font-size: 12px; line-height: 1.5; color: #565959; padding-top: 6px;">Claude Code is a product of Anthropic. This book is an independent work and is not affiliated with or endorsed by Anthropic.</div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

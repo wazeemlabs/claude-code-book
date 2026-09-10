@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #B7780F; } a:hover { color: #8F5D0B; }
+  </style>
+</helmet>
+<div style="width: 970px; height: 600px; background: #0B1F3A; color: #F6F4EE; font-family: Georgia, 'Times New Roman', serif; display: flex; flex-direction: row; align-items: stretch; overflow: hidden; position: relative;">
+  <div style="width: 520px; padding: 64px 0 64px 64px; display: flex; flex-direction: column; justify-content: center; gap: 22px;">
+    <div style="font: 600 13px/1.4 Inter, system-ui, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #E0B25C;">September 2026 edition</div>
+    <div style="font-size: 54px; line-height: 1.04; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance;">Claude Code from the Ground Up</div>
+    <div style="width: 72px; height: 3px; background: #B7780F;"></div>
+    <div style="font-size: 21px; line-height: 1.4; color: #C9D3E3; text-wrap: pretty;">Agentic coding from your first session to autonomous engineering teams.</div>
+    <div style="font: 400 15px/1.5 Inter, system-ui, sans-serif; color: #8FA0BA;">Waseem Khan</div>
+  </div>
+  <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 48px 56px 48px 24px;">
+    <div style="width: 370px; background: #071426; border: 1px solid #1E3558; border-radius: 8px; box-shadow: 0 24px 60px rgba(0,0,0,0.45); overflow: hidden;">
+      <div style="display: flex; flex-direction: row; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid #1E3558;">
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: #2C4A75;"></div>
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: #2C4A75;"></div>
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: #2C4A75;"></div>
+        <div style="margin-left: 8px; font: 12px/1 'JetBrains Mono', ui-monospace, Menlo, monospace; color: #5B6B82;">logsift</div>
+      </div>
+      <div style="padding: 18px 20px 22px; font: 14px/1.85 'JetBrains Mono', ui-monospace, Menlo, monospace; color: #C9D3E3; display: flex; flex-direction: column; gap: 2px;">
+        <div><span style="color: #5B6B82;">$</span> claude</div>
+        <div style="color: #F6F4EE; text-wrap: pretty;"><span style="color: #E0B25C;">&gt;</span> Add an nginx parser to logsift, with tests, one commit per step.</div>
+        <div style="margin-top: 8px;"><span style="color: #E0B25C;">&#9679;</span> Read &nbsp;parsers/__init__.py</div>
+        <div><span style="color: #E0B25C;">&#9679;</span> Write parsers/nginx.py</div>
+        <div><span style="color: #E0B25C;">&#9679;</span> Bash &nbsp;pytest -q</div>
+        <div><span style="color: #E0B25C;">&#9679;</span> Bash &nbsp;git commit -m "Add nginx parser"</div>
+        <div style="margin-top: 8px; color: #5B6B82;">Done. Next step: the plugin.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
