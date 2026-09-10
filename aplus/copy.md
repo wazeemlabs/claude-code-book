@@ -1,8 +1,7 @@
 # Amazon A+ content, Claude Code from the Ground Up
 
-Four modules, six images, within Amazon's limit. Text for each module in
-page order. Images are in `png/`, named by module and pixel size;
-`png/spare/` holds two modules cut for the limit. No URLs anywhere: Amazon rejects A+ text that
+Six modules, Amazon's limit. Text for each module in page order. Images
+are in `png/`, named by module and pixel size. No URLs anywhere: Amazon rejects A+ text that
 points off-site.
 
 ## 1. Standard image header with text (`01-header-970x600.png`)
@@ -36,28 +35,37 @@ desktop, web and phone. Chapters 14 to 20.
 migration of a real Django app, the Agent SDK, analytics, gateways and
 cloud providers, and cost control. Chapters 21 to 28.
 
-## 3. Standard single image and sidebar (`03-sidebar-cards-300x400.png`)
+## 3. Standard image and text overlay (`03-overlay-970x300.png`)
+
+The numbers are in the image. Leave the overlay text empty, or one line.
+
+## 4. Standard single image and sidebar (`04-sidebar-cards-300x400.png`)
 
 **Kept current after print**
 
-Claude Code ships often, so the book comes with a companion site that
-lists, newest first, what has changed since this edition and which
-chapter it touches. It is updated monthly and the book itself is
-re-uploaded each quarter. The five reference appendices are there as
-PDFs, generated from the same documentation snapshot as the book.
+Claude Code ships often, so the book comes with a companion site that lists, newest first, what has changed since this edition and which chapter it touches. It is updated monthly, and the book is re-uploaded each quarter. The five reference appendices are there as PDFs. Both companion projects, a log parsing tool and a Django 4.2 to 5.2 migration, are public repositories with every session recorded and published along with the prompt that started it.
 
-The two companion projects, a log parsing tool with its plugin and a
-Django 4.2 to 5.2 migration, are public repositories with one commit per
-plan step, one branch per migration unit, and every session recorded and
-published along with the prompt that started it.
+(454 characters; the body field allows 500.)
 
-Sidebar, **Companion code**:
+Image caption: Appendices A to E as reference cards
+
+Sidebar image: `04b-sidebar-code-350x175.png`. Sidebar headline: **Companion code**. Bullet points:
 - Chapter 8: the logsift CLI and its nginx plugin.
 - Chapter 23: the django-helpdesk migration, one branch per unit.
 - Chapter 24: the Agent SDK triage agent with its run logs.
 - Chapter 27: the cost estimator.
 
-## 4. Standard text
+## 5. Standard comparison chart (`05a`, `05b`, 150x300)
+
+Replace the two typographic stand-ins with the real cover files.
+
+| | Claude Code from the Ground Up | Large Language Models from the Ground Up |
+|---|---|---|
+| Read this if you want to | Get real work out of Claude Code, then automate and scale it | Understand how ChatGPT works and build a language model yourself |
+| You will build | A CLI tool and plugin, a CI pipeline, a triage agent, a framework migration | A tokenizer, autograd, self-attention and a transformer, step by step |
+| Runs in | Your terminal, editor, desktop, browser and CI | Free Colab notebooks, nothing to install |
+
+## 6. Standard text
 
 **Who it is for**
 
