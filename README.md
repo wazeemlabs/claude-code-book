@@ -16,11 +16,22 @@
 
 ## Redactions
 
-The transcripts are published as recorded, with one exception. In
-transcripts/ch23/01-overview, a `ListAgents` call listed the author's
-other local Claude Code sessions; the names of six that have nothing to
-do with the book read `(redacted)`. Nothing else in any transcript is
-edited, and the turn counts and costs the book quotes are unchanged.
+The transcripts are published as recorded, except for these edits:
+
+- The author's username reads `reader`, in paths (`/Users/reader/...`)
+  and in `ls -l` output.
+- Session ids, message ids, API request ids, tool-call ids, and agent
+  and task ids are random stand-ins of the same shape. Each original
+  maps to one stand-in, so every tool call still pairs with its result.
+- The author's own MCP servers and their tools read `(redacted)` in each
+  session's init event. No session called any of them.
+- In transcripts/ch23/01-overview, a `ListAgents` call listed the
+  author's other local Claude Code sessions; the names of six that have
+  nothing to do with the book read `(redacted)`.
+
+Nothing else is edited. The `.md` renders are regenerated from the
+edited `.jsonl` with tools/render.py, and the turn counts and costs the
+book quotes are unchanged.
 
 ## How the sessions were billed
 
