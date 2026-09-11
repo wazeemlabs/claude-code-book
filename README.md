@@ -14,6 +14,14 @@
 - tools/run.sh, tools/render.py: run and render a headless session
 - tools/interview.py: drive AskUserQuestion through the Agent SDK
 
+## Redactions
+
+The transcripts are published as recorded, with one exception. In
+transcripts/ch23/01-overview, a `ListAgents` call listed the author's
+other local Claude Code sessions; the names of six that have nothing to
+do with the book read `(redacted)`. Nothing else in any transcript is
+edited, and the turn counts and costs the book quotes are unchanged.
+
 ## How the sessions were billed
 
 Every session here (the `claude -p` runs and the Agent SDK runs) used a

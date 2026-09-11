@@ -5,3 +5,4 @@ brownfield/
 *.stderr
 *.run.log
 worktrees/
+__pycache__/
